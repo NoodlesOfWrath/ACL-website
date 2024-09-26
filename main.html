@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACL - Analog Circuit Language</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .content {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #34495e;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        #hero {
+            background: linear-gradient(135deg, #3498db, #8e44ad);
+            color: #fff;
+        }
+
+        #features,
+        #benefits {
+            background-color: #f8f9fa;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: -webkit-linear-gradient(#8400ff, #00b7ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item p {
+            font-size: 1.1rem;
+            color: #000000;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            background: -webkit-linear-gradient(#6fff00, #aaff00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            color: #000000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="hero" class="section">
+        <div class="content">
+            <h1>ACL</h1>
+            <p>Analog Circuit Language: Revolutionizing Hardware Design</p>
+            <a href="#" class="btn">Get Started</a>
+
+
+            <section class="section">
+                <div class="content">
+                    <h2>Why Choose ACL?</h2>
+                    <div class="feature-item">
+                        <div class="feature-title">Purely Functional</div>
+                        <p>Design circuits with the power and elegance of functional programming</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-title">Rapid Prototyping</div>
+                        <p>Iterate and test designs faster than ever before</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-title">Intuitive Syntax</div>
+                        <p>Easy to learn, easy to use, without sacrificing power</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="content">
+                    <h2>ACL vs Traditional Design</h2>
+                    <p>Experience the difference in design time and efficiency</p>
+                    <p>Disclaimer: I completely made these stats up.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-number">80%</div>
+                            <div class="stat-label">Time Saved</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3x</div>
+                            <div class="stat-label">Faster Iterations</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50%</div>
+                            <div class="stat-label">Fewer Errors</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="section">
+                <div class="content">
+                    <h2>Ready to Transform Your Workflow?</h2>
+                    <p>Join the analog revolution with ACL today</p>
+                    <a href="#" class="btn">Visit Github</a>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.utils.toArray(".section").forEach((section, index) => {
+            const content = section.querySelector(".content");
+
+            gsap.fromTo(content,
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top center",
+                        end: "center center",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+        });
+
+        gsap.from(".feature-item", {
+            scrollTrigger: {
+                trigger: "#features",
+                start: "top center"
+            },
+            opacity: 0,
+            y: 50,
+            stagger: 0.2,
+            duration: 0.8,
+            ease: "power3.out"
+        });
+
+        gsap.from(".stat-item", {
+            scrollTrigger: {
+                trigger: "#benefits",
+                start: "top center"
+            },
+            opacity: 0,
+            scale: 0.8,
+            stagger: 0.2,
+            duration: 0.8,
+            ease: "back.out(1.7)"
+        });
+    </script>
+</body>
+
+</html>
